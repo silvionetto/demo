@@ -9,4 +9,9 @@ public class DemoApplicationController {
     public String index() {
         return "index";
     }
+
+    @GetMapping("/contact")
+    public String contact() {
+        return "contact";
+    }
 }
