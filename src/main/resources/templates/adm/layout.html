@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en" th:fragment="layout(content, title)">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title} ?: 'Airplane Marketplace - Admin'"></title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <!-- Add more CSS/JS as needed -->
+</head>
+<body>
+<header>
+    <nav>
+        <a th:href="@{/adm}">Admin Home</a>
+        <a th:href="@{/adm/roles}">Manage Roles</a>
+        <a href="#">Manage Users</a>
+        <a href="#">Manage Access</a>
+        <a th:href="@{/}">Back to Site</a>
+    </nav>
+</header>
+
+<main>
+    <div th:if="${message}" class="alert alert-success">
+        <p th:text="${message}"></p>
+    </div>
+    <div th:if="${error}" class="alert alert-danger">
+        <p th:text="${error}"></p>
+    </div>
+
+    <div th:replace="${content}">
+        <!-- Content of specific page will be inserted here -->
+    </div>
+</main>
+
+<footer>
+    <p>&copy; 2024 Airplane Marketplace - Admin</p>
+</footer>
+</body>
+</html>

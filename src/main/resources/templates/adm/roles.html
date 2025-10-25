@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{adm/layout :: layout(~{::section}, 'Roles Management')}">
+<head>
+    <title>This will be replaced</title>
+</head>
+<body>
+<section>
+    <h1>Roles Management</h1>
+    <p>Here you can manage the user roles.</p>
+
+    <div>
+        <a th:href="@{/adm/role}">Add New Role</a>
+    </div>
+
+    <br/>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="role : ${roles}">
+                <td th:text="${role.id}"></td>
+                <td th:text="${role.name}"></td>
+                <td th:text="${role.description}"></td>
+                <td>
+                    <a th:href="@{/adm/role/{id}(id=${role.id})}">Edit</a>
+                    <form th:action="@{/adm/role/delete/{id}(id=${role.id})}" method="post" style="display:inline;">
+                        <button type-="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</section>
+</body>
+</html>

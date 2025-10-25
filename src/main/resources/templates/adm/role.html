@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{adm/layout :: layout(~{::section}, 'Role Management')}">
+<head>
+    <title>This will be replaced</title>
+</head>
+<body>
+<section>
+    <h1 th:text="${role.id == null} ? 'New Role' : 'Edit Role'"></h1>
+
+    <form th:action="@{${role.id == null} ? '/adm/role/new' : '/adm/role/update'}" th:object="${role}" method="post">
+        <input type="hidden" th:field="*{id}"/>
+        <input type="hidden" th:field="*{version}"/>
+        <div>
+            <label for="name">Role Name</label>
+            <input type="text" id="name" th:field="*{name}"/>
+        </div>
+        <div>
+            <label for="name">Role Description</label>
+            <input type="text" id="description" th:field="*{description}"/>
+        </div>
+        <div>
+            <button type="submit">Save</button>
+        </div>
+    </form>
+
+</section>
+</body>
+</html>
