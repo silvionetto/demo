@@ -21,19 +21,19 @@ public class DemoAdmController {
     @GetMapping("/adm/roles")
     public String roles(Model model) {
         model.addAttribute("roles", roleRepository.findAll());
-        return "adm/roles";
+        return "adm/role/roles";
     }
 
     @GetMapping("/adm/role")
     public String role(Model model) {
         model.addAttribute("role", new DemoRole());
-        return "adm/role";
+        return "adm/role/role";
     }
 
     @GetMapping("/adm/role/{id}")
     public String role(@PathVariable("id") Long id, Model model) {
         model.addAttribute("role", roleRepository.findById(id).orElse(new DemoRole()));
-        return "adm/role";
+        return "adm/role/role";
     }
 
     @PostMapping("/adm/role/new")

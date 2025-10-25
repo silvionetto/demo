@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-      th:replace="~{adm/layout :: layout(~{::section}, 'Roles Management')}">
+      th:replace="~{/adm/layout :: layout(~{::section}, 'Roles Management')}">
 <head>
     <title>This will be replaced</title>
 </head>
@@ -10,7 +10,7 @@
     <p>Here you can manage the user roles.</p>
 
     <div>
-        <a th:href="@{/adm/role}">Add New Role</a>
+        <a th:href="@{/adm/role}">New Role</a>
     </div>
 
     <br/>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{adm/layout :: layout(~{::.page-content}, 'Users')}">
+<div class="page-content">
+    <h1>Users</h1>
+    <p>Here you can manage the users.</p>
+
+    <div>
+        <a th:href="@{/adm/users/new}">New User</a>
+    </div>
+
+    <br/>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="user : ${users}">
+            <td th:text="${user.id}"></td>
+            <td th:text="${user.userName}"></td>
+            <td th:text="${user.email}"></td>
+            <td>
+                <a th:href="@{/adm/users/edit/{id}(id=${user.id})}">Edit</a>
+                <a th:href="@{/adm/users/delete/{id}(id=${user.id})}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</html>
