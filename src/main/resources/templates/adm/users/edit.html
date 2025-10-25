@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layout :: layout(~{::.page-content}, 'Edit User')}">
+<div class="page-content">
+    <h1 th:text="${user.id == null} ? 'New User' : 'Edit User'">Edit User</h1>
+
+    <form th:action="@{/adm/users/save}" th:object="${user}" method="post">
+        <input type="hidden" th:field="*{id}"/>
+        <div>
+            <label for="userName">Username:</label>
+            <input type="text" id="userName" th:field="*{userName}" required/>
+        </div>
+        <div>
+            <label for="password">Password</label>
+            <input type="password" id="password" th:field="*{password}"/>
+        </div>
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" th:field="*{email}" required/>
+        </div>
+        <div>
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" th:field="*{firstName}"/>
+        </div>
+        <div>
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" th:field="*{lastName}"/>
+        </div>
+        <div>
+            <label for="enabled">Enabled</label>
+            <input type="checkbox" id="enabled" th:field="*{enabled}"/>
+        </div>
+
+        <div>
+            <h3>Roles</h3>
+            <th:block th:each="role : ${allRoles}">
+                <div>
+                    <input type="checkbox"
+                           th:id="${'role-' + role.id}"
+                           th:field="*{roles}"
+                           th:value="${role.id}"/>
+                    <label th:for="${'role-' + role.id}" th:text="${role.name}">Role Name</label>
+                </div>
+            </th:block>
+        </div>
+
+        <div>
+            <button type="submit">Save</button>
+            <a th:href="@{/adm/users}">Cancel</a>
+        </div>
+    </form>
+</div>
+</html>
