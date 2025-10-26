@@ -18,7 +18,10 @@
     <nav class="navbar navbar-expand-sm">
         <a th:href="@{/}">Home</a>
         <a th:href="@{/contact}">Contact</a>
+        <a th:href="@{/login}" sec:authorize="!isAuthenticated()">Login</a>
         <a th:href="@{/adm}" sec:authorize="hasRole('ADMIN')">Admin</a>
+        <a href="#" onclick="document.getElementById('logout-form').submit();" sec:authorize="isAuthenticated()">Logout</a>
+        <form id="logout-form" th:action="@{/logout}" method="post" style="display: none;"></form>
     </nav>
 </header>
 
