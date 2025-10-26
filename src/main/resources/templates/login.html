@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en" th:replace="~{layout :: layout(~{::.page-content}, 'Login')}">
+
+<body>
+<div class="page-content">
+    <h2>Login</h2>
+    <form th:action="@{/login}" method="post">
+        <div th:if="${param.error}" class="alert alert-danger">
+            Invalid username or password.
+        </div>
+        <div>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" autofocus="autofocus" required />
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required />
+        </div>
+        <div>
+            <button type="submit">Log in</button>
+        </div>
+    </form>
+    <p>Don't have an account? <a th:href="@{/register}">Register Here</a></p>
+</div>
+</body>
+</html>

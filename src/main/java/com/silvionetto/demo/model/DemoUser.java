@@ -1,4 +1,4 @@
-package com.silvionetto.demo;
+package com.silvionetto.demo.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

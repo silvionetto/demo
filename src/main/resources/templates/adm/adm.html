@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-      th:replace="~{adm/layout :: layout(~{::section}, 'Administrative Module')}">
+<html xmlns:th="http://www.thymeleaf.org" lang="en"
+      th:replace="~{adm/layout :: layout(~{::.page-content}, 'Administrative Module')}">
 <head>
     <title>This will be replaced</title>
 </head>
 <body>
-<section>
+<div class="page-content">
     <h1>Administrative Module</h1>
     <p>Welcome to the administrative module. Here you can manage system settings.</p>
     <ul>
@@ -13,6 +13,6 @@
         <li><a th:href="@{/adm/users}">Manage Users</a></li>
         <li><a href="#">Manage Access</a></li>
     </ul>
-</section>
+</div>
 </body>
 </html>

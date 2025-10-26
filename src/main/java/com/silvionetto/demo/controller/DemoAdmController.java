@@ -1,5 +1,7 @@
-package com.silvionetto.demo;
+package com.silvionetto.demo.controller;
 
+import com.silvionetto.demo.model.DemoRole;
+import com.silvionetto.demo.repository.DemoRoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en" th:replace="~{layout :: layout(~{::.page-content}, 'Error')}">
 
-<div class="page-content">
-    <h2>Oops! Page Not Found</h2>
-    <p>The page you are looking for does not exist.</p>
-    <a th:href="@{/}">Go to Home</a>
-</div>
+<body>
+    <div class="page-content">
+        <h2>Oops! Page Not Found</h2>
+        <p>The page you are looking for does not exist.</p>
+        <a th:href="@{/}">Go to Home</a>
+    </div>
+</body>
 
 </html>
